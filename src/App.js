@@ -1,23 +1,18 @@
-import logo from './logo.svg';
+import React,{useState} from 'react';
 import './App.css';
+import Button from './components/Button';
+import Popup from './components/Popup';
+import MyTable from './components/MyTable';
 
 function App() {
+  const [openPopup,setOpenPopup]=useState(false);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {/* <button onClick={}>show Pop-up</button> */}
+      <Button onClick={()=>setOpenPopup(true)}/>
+      <Popup title='Users-Data' openPopup={openPopup} setOpenPopup={setOpenPopup}>
+        <p><MyTable/> </p>
+      </Popup>
     </div>
   );
 }
